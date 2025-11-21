@@ -36,29 +36,97 @@
 //   console.log("Second");
 // }, 2000);
 
-function sum(val, callback) {
-  callback(val+5)
-}
+// function sum(val, callback) {
+//   callback(val+5)
+// }
 
-function sub(val, callback) {
-  callback(val-3)
-}
+// function sub(val, callback) {
+//   callback(val-3)
+// }
 
-function mul(val, callback) {
-  callback(val*2)
-}
+// function mul(val, callback) {
+//   callback(val*2)
+// }
 
-function div(val, callback) {
-  callback(val/4)
-}
+// function div(val, callback) {
+//   callback(val/4)
+// }
 
-sum(10, (sumResult) => {
-  sub(sumResult, (subResult) => {
-    mul(subResult, (mulResult) => {
-      div(mulResult, (divResult) => {
-        console.log("Div:", divResult);
-      });
+// sum(10, (sumResult) => {
+//   sub(sumResult, (subResult) => {
+//     mul(subResult, (mulResult) => {
+//       div(mulResult, (divResult) => {
+//         console.log("Div:", divResult);
+//       });
+//     });
+//   });
+// });
+
+
+// function orderPlaced(orderID, callback) {
+//     callback(`Order Id ${orderID} Placed Succesfully`);
+// }
+// function shipped(orderID, callback) {
+//     callback(`Order ID ${orderID} Shipped Successfully`);
+// }
+// function dispatch(orderID, callback) {
+//     callback(`Order ID ${orderID} Dispatched Successfully`);
+// }
+// function deliver(orderID, callback) {
+//     callback(`Order ID ${orderID} Delivered Successfully`);
+// }
+
+// orderPlaced(25634,(placed)=>{
+//     console.log(placed);
+//     shipped(36524, (shippeed)=> {
+//         console.log(shippeed);
+//         dispatch(63524, (disp) => {
+//             console.log(disp);
+//             deliver(536412,(delivered)=> {
+//                 console.log(delivered);
+//             });
+//         });
+//     });
+// });
+
+function orderPlaced(orderID) {
+    return new Promise((resolve) => {
+        resolve(`Order ID ${orderID} Placed Successfully`);
     });
-  });
-});
+}
+
+function shipped(orderID) {
+    return new Promise((resolve) => {
+        resolve(`Order ID ${orderID} Shipped Successfully`);
+    });
+}
+
+function dispatch(orderID) {
+    return new Promise((resolve) => {
+        resolve(`Order ID ${orderID} Dispatched Successfully`);
+    });
+}
+
+function deliver(orderID) {
+    return new Promise((resolve) => {
+        resolve(`Order ID ${orderID} Delivered Successfully`);
+    });
+}
+
+orderPlaced(25634)
+    .then((placed) => {
+        console.log(placed);
+        return shipped(36524);
+    })
+    .then((shippedMsg) => {
+        console.log(shippedMsg);
+        return dispatch(63524);
+    })
+    .then((dispatchMsg) => {
+        console.log(dispatchMsg);
+        return deliver(536412);
+    })
+    .then((deliveredMsg) => {
+        console.log(deliveredMsg);
+    });
 
