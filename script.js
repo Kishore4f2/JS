@@ -113,20 +113,32 @@ function deliver(orderID) {
     });
 }
 
-orderPlaced(25634)
-    .then((placed) => {
-        console.log(placed);
-        return shipped(36524);
-    })
-    .then((shippedMsg) => {
-        console.log(shippedMsg);
-        return dispatch(63524);
-    })
-    .then((dispatchMsg) => {
-        console.log(dispatchMsg);
-        return deliver(536412);
-    })
-    .then((deliveredMsg) => {
-        console.log(deliveredMsg);
-    });
+// orderPlaced(25634)
+//     .then((placed) => {
+//         console.log(placed);
+//         return shipped(36524);
+//     })
+//     .then((shippedMsg) => {
+//         console.log(shippedMsg);
+//         return dispatch(63524);
+//     })
+//     .then((dispatchMsg) => {
+//         console.log(dispatchMsg);
+//         return deliver(536412);
+//     })
+//     .then((deliveredMsg) => {
+//         console.log(deliveredMsg);
+//     });
 
+orderPlaced(1234).then((placed)=> {
+    console.log(placed);
+    shipped(1234).then((shipped)=> {
+        console.log(shipped);
+        dispatch(1234).then((dispatched)=> {
+            console.log(dispatched);
+            deliver(1234).then((delivered)=> {
+                console.log(delivered);
+            });
+        });
+    });
+});
