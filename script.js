@@ -89,29 +89,29 @@
 //     });
 // });
 
-function orderPlaced(orderID) {
-    return new Promise((resolve) => {
-        resolve(`Order ID ${orderID} Placed Successfully`);
-    });
-}
+// function orderPlaced(orderID) {
+//     return new Promise((resolve) => {
+//         resolve(`Order ID ${orderID} Placed Successfully`);
+//     });
+// }
 
-function shipped(orderID) {
-    return new Promise((resolve) => {
-        resolve(`Order ID ${orderID} Shipped Successfully`);
-    });
-}
+// function shipped(orderID) {
+//     return new Promise((resolve) => {
+//         resolve(`Order ID ${orderID} Shipped Successfully`);
+//     });
+// }
 
-function dispatch(orderID) {
-    return new Promise((resolve) => {
-        resolve(`Order ID ${orderID} Dispatched Successfully`);
-    });
-}
+// function dispatch(orderID) {
+//     return new Promise((resolve) => {
+//         resolve(`Order ID ${orderID} Dispatched Successfully`);
+//     });
+// }
 
-function deliver(orderID) {
-    return new Promise((resolve) => {
-        resolve(`Order ID ${orderID} Delivered Successfully`);
-    });
-}
+// function deliver(orderID) {
+//     return new Promise((resolve) => {
+//         resolve(`Order ID ${orderID} Delivered Successfully`);
+//     });
+// }
 
 // orderPlaced(25634)
 //     .then((placed) => {
@@ -130,15 +130,22 @@ function deliver(orderID) {
 //         console.log(deliveredMsg);
 //     });
 
-orderPlaced(1234).then((placed)=> {
-    console.log(placed);
-    shipped(1234).then((shipped)=> {
-        console.log(shipped);
-        dispatch(1234).then((dispatched)=> {
-            console.log(dispatched);
-            deliver(1234).then((delivered)=> {
-                console.log(delivered);
-            });
-        });
-    });
+// orderPlaced(1234).then((placed)=> {
+//     console.log(placed);
+//     shipped(1234).then((shipped)=> {
+//         console.log(shipped);
+//         dispatch(1234).then((dispatched)=> {
+//             console.log(dispatched);
+//             deliver(1234).then((delivered)=> {
+//                 console.log(delivered);
+//             });
+//         });
+//     });
+// });
+
+const URL = "https://fakestoreapi.com/products";
+fetch(URL).then((res)=> { return res.json()}).then((data)=> {
+    for(let i=1;i<data.length;i++) {
+        console.log(data[i].title);
+    }
 });
