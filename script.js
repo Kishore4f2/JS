@@ -143,23 +143,30 @@
 //     });
 // });
 
-const URL = "https://dummyjson.com/quotes";
-fetch(URL).then((res)=> { return res.json()}).then((data)=> {
-    console.log(data);
-})
+// const URL = "https://dummyjson.com/quotes";
+// fetch(URL).then((res)=> { return res.json()}).then((data)=> {
+//     console.log(data);
+// })
 
-const URL1 = "https://dummyjson.com/todos";
-fetch(URL1).then((res)=> { return res.json()}).then((data)=> {
-    console.log(data);
-})
+// const URL1 = "https://dummyjson.com/todos";
+// fetch(URL1).then((res)=> { return res.json()}).then((data)=> {
+//     console.log(data);
+// })
 
-const URL2 = "https://jsonplaceholder.typicode.com/photos";
-fetch(URL2).then((res)=> { return res.json()}).then((data)=> {
-    console.log(data);
-})
+// const URL2 = "https://jsonplaceholder.typicode.com/photos";
+// fetch(URL2).then((res)=> { return res.json()}).then((data)=> {
+//     console.log(data);
+// })
 
-const URL3 = "https://pokeapi.co/api/v2/pokemon/ditto";
-fetch(URL3).then((res)=> { return res.json()}).then((data)=> {
-    console.log(data);
-})
+// const URL3 = "https://pokeapi.co/api/v2/pokemon/ditto";
+// fetch(URL3).then((res)=> { return res.json()}).then((data)=> {
+//     console.log(data);
+// })
 
+fetch("http://localhost:3000/Names", { method: "GET" })
+    .then(res => res.json())
+    .then(data => {
+        for(let i=0;i<data.length;i++) {
+            console.log(data[i].Name);
+        }
+    });
