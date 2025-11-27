@@ -163,10 +163,47 @@
 //     console.log(data);
 // })
 
-fetch("http://localhost:3000/Names", { method: "GET" })
-    .then(res => res.json())
-    .then(data => {
-        for(let i=0;i<data.length;i++) {
-            console.log(data[i].Name);
+// fetch("http://localhost:3000/Names", { "methods": "GET" })
+//     .then(res => res.json())
+//     .then(data => console.log(data));
+
+
+
+    // headers: {
+    //     "Content-Type": "application/json"
+    // },
+    // body: JSON.stringify(
+    //     { 
+    //     Age: 28,
+    //     name: "Manoj" 
+    // }
+    // )
+
+   function deleteAll() {
+
+    const ok = confirm("Are you sure? This will delete ALL records permanently.");
+
+    if (!ok) {
+        console.log("Deletion cancelled");
+        return;
+    }
+
+    fetch("http://localhost:3000/Names", {
+        method: "DELETE"
+    })
+    .then(res => {
+        if (res.ok) {
+            console.log("All records deleted successfully!");
+            alert("All records deleted successfully!");
+        } else {
+            console.log("Error in deletion");
+            alert("Error deleting records");
         }
+    })
+    .catch(err => {
+        console.log("Network error:", err);
+        alert("Network error");
     });
+}
+
+    

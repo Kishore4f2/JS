@@ -1,24 +1,3 @@
 {
-    "Names": [
-        {
-            "id": 1,
-            "Name": "Kishore",
-            "Age": 18
-        },
-        {
-            "id": 2,
-            "Name": "Panda",
-            "Age": 20
-        },
-        {
-            "id": 3,
-            "Name": "Manoj",
-            "Age": 22
-        },
-        {
-            "id": 4,
-            "Name": "Durgarao",
-            "Age": 21
-        }
-    ]
+  "Names": []
 }
